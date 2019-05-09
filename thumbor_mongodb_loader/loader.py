@@ -11,10 +11,8 @@ import urllib
 
 
 def __conn__(self):
-  password = urllib.quote_plus(self.config.MONGO_ORIGIN_SERVER_PASSWORD)
-  user = urllib.quote_plus(self.config.MONGO_ORIGIN_SERVER_USER)
   the_database = self.config.MONGO_ORIGIN_SERVER_DB
-  uri = 'mongodb://'+ user +':' + password + '@' + self.config.MONGO_ORIGIN_SERVER_HOST + '/?authSource=' + self.config.MONGO_ORIGIN_SERVER_DB
+  uri = 'mongodb://' + self.config.MONGO_ORIGIN_SERVER_HOST + '/?authSource=' + self.config.MONGO_ORIGIN_SERVER_DB
   client = MongoClient(uri)
   #database
   db = client[self.config.MONGO_ORIGIN_SERVER_DB]

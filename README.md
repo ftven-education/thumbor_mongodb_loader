@@ -18,6 +18,16 @@ Url type: https://thumbor-server.domain/[secret|unsafe]/[params]/XXXXXXXXXXXXXXX
 where `XXXXXXXXXXXXXXXXXXXXXX` is a GridFS `file_id`
 
 
+##### Configuration example for varnish (recv) with AUTO_WEBP ####
+if (req.http.Accept ~ "image/webp") {
+  set req.http.Accept = "image/webp";
+} else {
+  # not present, and we don't care about the rest
+  unset req.http.Accept;
+}
+##################################################################
+
+
 Tested on Debian 9 with:
 - Thumbor (pip) 6.5
 - MongoDB 4.0.4
